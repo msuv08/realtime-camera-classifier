@@ -17,3 +17,15 @@ class Camera:
         if self.camera.isOpened():
             self.camera.release()
     
+    def get_frame(self):
+        # Grab a frame from the opened camera
+        if self.camera.isOpened():
+            rval, frame = self.camera.read()
+
+            if not rval:
+                return (ret, None)
+            else:
+                # Recolor the frame from BGR (input) to RGB
+                return (rval, cv.cvtColor(frame, cv.COLOR_BGR2RGB))
+        else:
+            return None
