@@ -16,3 +16,4 @@ class Camera:
         # Close camera on object deletion
         if self.camera.isOpened():
             self.camera.release()
+    
